@@ -34,14 +34,15 @@ stockList.forEach(stock => {
     var ticker = stock.ticker.toLowerCase();
     $('#stock-list').append(`<li class="my-2"><button id="${ticker}">${stock.name}</button></li>`);
     $(`#${ticker}`).on('click', function(){
-        $.get(`https://api.iextrading.com/1.0/stock/${ticker}/logo`, function(response){
+        $.get(`https://api.iextrading.com/1.0/stock/${ticker}/batch?types=logo,quote,news,chart&range=1m&last=10`, function(response){
             console.log();
-            $('#logo').attr('src', response.url);
+            $('#logo').attr('src', response.logo.url);
             $('#logo').show();
+            $('.co-name').text(response.quote.companyName);
+            $('.price').text(`$${response.quote.latestPrice}`);
         });
     });
 });
 
-// https://api.iextrading.com/1.0/stock/aapl/batch?types=quote,news,chart&range=1m&last=10
 
 
