@@ -30,6 +30,8 @@ var stockList = [
     }
 ];
 
+var validationList = [];
+
 stockList.forEach(stock => {
     var ticker = stock.ticker.toLowerCase();
     $('#stock-list').append(`<li class="my-2"><button id="${ticker}">${stock.name}</button></li>`);
@@ -55,5 +57,12 @@ stockList.forEach(stock => {
     });
 });
 
-
+$.get('https://api.iextrading.com/1.0/ref-data/symbols', function(response){
+    response.forEach(element => {
+        validationList.push({
+            'ticker' : element.symbol.toUpperCase(),
+            'name' : element.name
+        });
+    });
+});
 
