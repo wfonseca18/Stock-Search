@@ -36,8 +36,9 @@ function populatePage() {
     $('#stock-list').empty();
     stockList.forEach(stock => {
         var ticker = stock.ticker.toLowerCase();
-        $('#stock-list').append(`<li class="my-2"><button id="${ticker}">${stock.name}</button></li>`);
+        $('#stock-list').append(`<li class="nav-options"><a href="#" role="button" id="${ticker}">${stock.name}</a></li>`);
         $(`#${ticker}`).on('click', function () {
+            $('li').toggle('display');
             $.get(`https://api.iextrading.com/1.0/stock/${ticker}/batch?types=logo,quote,news,chart&range=1m&last=10`, function (response) {
                 let html = '', articles = [];
                 $('#logo').attr('src', response.logo.url);
@@ -82,4 +83,8 @@ $('#add').on('click', function(){
         }
     });
     $('#addTicker').val('');
+});
+
+$('#icon').on('click', function(){
+    $('li').toggle('display');
 });
