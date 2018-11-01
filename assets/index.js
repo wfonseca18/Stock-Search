@@ -38,6 +38,7 @@ function populatePage() {
         var ticker = stock.ticker.toLowerCase();
         $('#stock-list').append(`<li class="nav-options"><a href="#" role="button" id="${ticker}">${stock.name}</a></li>`);
         $(`#${ticker}`).on('click', function () {
+            $('#background').hide();
             $('li').toggle('display');
             $.get(`https://api.iextrading.com/1.0/stock/${ticker}/batch?types=logo,quote,news,chart&range=1m&last=10`, function (response) {
                 let html = '', articles = [];
