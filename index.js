@@ -80,6 +80,7 @@ $('#add').on('click', function(){
                 name : stock.name
             });
             populatePage();
+            alert(userInput + ' has been added to the navigation menu.');
         }
     });
     $('#addTicker').val('');
