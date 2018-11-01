@@ -19,14 +19,6 @@ var stockList = [
     {
         ticker: 'AAPL',
         name: 'Apple'
-    },
-    {
-        ticker: 'OKTA',
-        name: 'Okta'
-    },
-    {
-        ticker: 'NOW',
-        name: 'ServiceNow'
     }
 ];
 
