@@ -45,7 +45,7 @@ function populatePage() {
                 $('#logo').attr('src', response.logo.url);
                 $('#logo').show();
                 $('.co-name').text(response.quote.companyName);
-                $('.price').text(`$${response.quote.latestPrice}`);
+                $('.price').text(`Price: $${response.quote.latestPrice}`);
                 articles = response.news;
                 for (let i = 0; i < articles.length; i++) {
                     html += '<div class="card my-3">';

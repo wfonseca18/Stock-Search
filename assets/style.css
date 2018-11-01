@@ -3,6 +3,15 @@ body {
     background-color: rgb(252, 249, 249);
 }
 
+#header {
+    text-decoration: none;
+    color: black;
+}
+
+#header:hover {
+    color: rgb(88, 148, 175);
+}
+
 .nav-options {
     display: none;
     background-color: #e7e7e7;
