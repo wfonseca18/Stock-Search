@@ -1,4 +1,8 @@
 
+body {
+    background-color: rgb(252, 249, 249);
+}
+
 .nav-options {
     display: none;
     background-color: #e7e7e7;
@@ -9,6 +13,8 @@
 .nav-options a {
     color: black;
     text-decoration: none;
+    width: 100%;
+    display: block;
 }
 
 li {list-style-type: none;}
